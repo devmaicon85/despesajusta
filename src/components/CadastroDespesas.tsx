@@ -30,7 +30,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { Participante, Despesa } from '../types';
-import DetalhamentoSaldos from './DetalhamentoSaldos';
 
 interface Props {
   participantes: Participante[];
@@ -300,95 +299,6 @@ export default function CadastroDespesas({ participantes, despesas, setDespesas 
           </DialogActions>
         </Dialog>
 
-        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-          <List>
-            {despesas.map((despesa) => (
-              <Box key={despesa.id}>
-                <ListItemButton 
-                  onClick={() => toggleOpenItem(despesa.id)}
-                  sx={{
-                    '&:hover': {
-                      backgroundColor: 'action.hover',
-                    }
-                  }}
-                >
-                  <ListItemText
-                    primary={despesa.descricao}
-                    secondary={
-                      <Stack 
-                        direction={isMobile ? 'column' : 'row'} 
-                        spacing={isMobile ? 0.5 : 2}
-                        alignItems={isMobile ? 'flex-start' : 'center'}
-                      >
-                        <Typography variant="body2" color="text.secondary">
-                          R$ {despesa.valorTotal.toFixed(2)}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          Pago por: {getParticipanteNome(despesa.pagadorId)}
-                        </Typography>
-                      </Stack>
-                    }
-                  />
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <IconButton
-                      edge="end"
-                      aria-label="edit"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleEdit(despesa);
-                      }}
-                    >
-                      <EditIcon />
-                    </IconButton>
-                    <IconButton
-                      edge="end"
-                      aria-label="delete"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleDelete(despesa.id);
-                      }}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
-                    {openItems[despesa.id] ? <ExpandLess /> : <ExpandMore />}
-                  </Stack>
-                </ListItemButton>
-                <Collapse in={openItems[despesa.id]} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <ListItem sx={{ pl: 4 }}>
-                      <ListItemText
-                        primary="Divisão da Despesa"
-                        secondary={
-                          <Stack spacing={1}>
-                            {despesa.divisao.map((divisao) => (
-                              <Box 
-                                key={divisao.participanteId}
-                                sx={{
-                                  display: 'flex',
-                                  justifyContent: 'space-between',
-                                  alignItems: 'center',
-                                  width: '100%'
-                                }}
-                              >
-                                <Typography variant="body2" color="text.secondary">
-                                  {getParticipanteNome(divisao.participanteId)}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                  R$ {divisao.valor.toFixed(2)}
-                                </Typography>
-                              </Box>
-                            ))}
-                          </Stack>
-                        }
-                      />
-                    </ListItem>
-                  </List>
-                </Collapse>
-              </Box>
-            ))}
-          </List>
-        </Paper>
-
         <Box sx={{ mt: 4 }}>
           <Typography variant="h6" gutterBottom>
             Despesas Cadastradas
@@ -399,98 +309,94 @@ export default function CadastroDespesas({ participantes, despesas, setDespesas 
               Nenhuma despesa cadastrada ainda.
             </Typography>
           ) : (
-            <>
-              <DetalhamentoSaldos friends={participantes} expenses={despesas} />
-              
-              <Box sx={{ mt: 3 }}>
-                <List>
-                  {despesas.map((expense) => (
-                    <Box key={expense.id}>
-                      <ListItemButton 
-                        onClick={() => toggleOpenItem(expense.id)}
-                        sx={{
-                          '&:hover': {
-                            backgroundColor: 'action.hover',
-                          }
-                        }}
-                      >
-                        <ListItemText
-                          primary={expense.descricao}
-                          secondary={
-                            <Stack 
-                              direction={isMobile ? 'column' : 'row'} 
-                              spacing={isMobile ? 0.5 : 2}
-                              alignItems={isMobile ? 'flex-start' : 'center'}
-                            >
-                              <Typography variant="body2" color="text.secondary">
-                                R$ {expense.valorTotal.toFixed(2)}
-                              </Typography>
-                              <Typography variant="body2" color="text.secondary">
-                                Pago por: {getParticipanteNome(expense.pagadorId)}
-                              </Typography>
-                            </Stack>
-                          }
-                        />
-                        <Stack direction="row" spacing={1} alignItems="center">
-                          <IconButton
-                            edge="end"
-                            aria-label="edit"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleEdit(expense);
-                            }}
+            <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+              <List>
+                {despesas.map((despesa) => (
+                  <Box key={despesa.id}>
+                    <ListItemButton 
+                      onClick={() => toggleOpenItem(despesa.id)}
+                      sx={{
+                        '&:hover': {
+                          backgroundColor: 'action.hover',
+                        }
+                      }}
+                    >
+                      <ListItemText
+                        primary={despesa.descricao}
+                        secondary={
+                          <Stack 
+                            direction={isMobile ? 'column' : 'row'} 
+                            spacing={isMobile ? 0.5 : 2}
+                            alignItems={isMobile ? 'flex-start' : 'center'}
                           >
-                            <EditIcon />
-                          </IconButton>
-                          <IconButton
-                            edge="end"
-                            aria-label="delete"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleDelete(expense.id);
-                            }}
-                          >
-                            <DeleteIcon />
-                          </IconButton>
-                          {openItems[expense.id] ? <ExpandLess /> : <ExpandMore />}
-                        </Stack>
-                      </ListItemButton>
-                      <Collapse in={openItems[expense.id]} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
-                          <ListItem sx={{ pl: 4 }}>
-                            <ListItemText
-                              primary="Divisão da Despesa"
-                              secondary={
-                                <Stack spacing={1}>
-                                  {expense.divisao.map((divisao) => (
-                                    <Box 
-                                      key={divisao.participanteId}
-                                      sx={{
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                        alignItems: 'center',
-                                        width: '100%'
-                                      }}
-                                    >
-                                      <Typography variant="body2" color="text.secondary">
-                                        {getParticipanteNome(divisao.participanteId)}
-                                      </Typography>
-                                      <Typography variant="body2" color="text.secondary">
-                                        R$ {divisao.valor.toFixed(2)}
-                                      </Typography>
-                                    </Box>
-                                  ))}
-                                </Stack>
-                              }
-                            />
-                          </ListItem>
-                        </List>
-                      </Collapse>
-                    </Box>
-                  ))}
-                </List>
-              </Box>
-            </>
+                            <Typography variant="body2" color="text.secondary">
+                              R$ {despesa.valorTotal.toFixed(2)}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                              Pago por: {getParticipanteNome(despesa.pagadorId)}
+                            </Typography>
+                          </Stack>
+                        }
+                      />
+                      <Stack direction="row" spacing={1} alignItems="center">
+                        <IconButton
+                          edge="end"
+                          aria-label="edit"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleEdit(despesa);
+                          }}
+                        >
+                          <EditIcon />
+                        </IconButton>
+                        <IconButton
+                          edge="end"
+                          aria-label="delete"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDelete(despesa.id);
+                          }}
+                        >
+                          <DeleteIcon />
+                        </IconButton>
+                        {openItems[despesa.id] ? <ExpandLess /> : <ExpandMore />}
+                      </Stack>
+                    </ListItemButton>
+                    <Collapse in={openItems[despesa.id]} timeout="auto" unmountOnExit>
+                      <List component="div" disablePadding>
+                        <ListItem sx={{ pl: 4 }}>
+                          <ListItemText
+                            primary="Divisão da Despesa"
+                            secondary={
+                              <Stack spacing={1}>
+                                {despesa.divisao.map((divisao) => (
+                                  <Box 
+                                    key={divisao.participanteId}
+                                    sx={{
+                                      display: 'flex',
+                                      justifyContent: 'space-between',
+                                      alignItems: 'center',
+                                      width: '100%'
+                                    }}
+                                  >
+                                    <Typography variant="body2" color="text.secondary">
+                                      {getParticipanteNome(divisao.participanteId)}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary">
+                                      R$ {divisao.valor.toFixed(2)}
+                                    </Typography>
+                                  </Box>
+                                ))}
+                              </Stack>
+                            }
+                          />
+                        </ListItem>
+                      </List>
+                    </Collapse>
+                  </Box>
+                ))}
+              </List>
+            </Paper>
           )}
         </Box>
       </Stack>
