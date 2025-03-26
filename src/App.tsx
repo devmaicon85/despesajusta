@@ -14,6 +14,7 @@ import {
 import CadastroParticipantes from './components/CadastroParticipantes'
 import CadastroDespesas from './components/CadastroDespesas'
 import ListagemTransacoes from './components/ListagemTransacoes'
+import InstallPWA from './components/InstallPWA'
 import { Participante, Despesa } from './types'
 import GroupIcon from '@mui/icons-material/Group'
 import ReceiptIcon from '@mui/icons-material/Receipt'
@@ -311,6 +312,8 @@ function App() {
           </BottomNavigation>
         </MuiPaper>
       )}
+
+      <InstallPWA />
     </Box>
   )
 }
