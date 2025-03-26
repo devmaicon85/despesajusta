@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
-  Snackbar,
+  Dialog,
   Button,
   Box,
   Typography,
@@ -52,35 +52,28 @@ export default function InstallPWA() {
   if (!deferredPrompt) return null;
 
   return (
-    <Snackbar
+    <Dialog
       open={open}
       onClose={handleClose}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       sx={{
-        bottom: { xs: 80, sm: 24 },
-        '& .MuiSnackbarContent-root': {
-          bgcolor: 'background.paper',
-          color: 'text.primary',
-          boxShadow: 3,
-          borderRadius: 2,
-          p: 2,
+        '& .MuiDialog-paper': {
           width: '100%',
           maxWidth: { xs: '90%', sm: '400px' },
+          m: 2,
+          p: 2,
+          borderRadius: 2,
         },
       }}
     >
-      <Stack spacing={2} width="100%">
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          <InstallIcon color="primary" fontSize="large" />
+      <Stack spacing={3}>
+        <Stack spacing={2} alignItems="center" textAlign="center">
+          <InstallIcon color="primary" sx={{ fontSize: 48 }} />
           <Typography variant="body1">
             Instale o despesaJusta para uma experiência melhor
           </Typography>
-        </Box>
-        <Stack 
-          direction="column" 
-          spacing={1} 
-          width="100%"
-        >
+        </Stack>
+
+        <Stack spacing={1}>
           <Button
             variant="contained"
             color="primary"
@@ -91,6 +84,7 @@ export default function InstallPWA() {
             Instalar
           </Button>
           <Button
+            variant="text"
             color="inherit"
             onClick={handleClose}
             fullWidth
@@ -100,6 +94,6 @@ export default function InstallPWA() {
           </Button>
         </Stack>
       </Stack>
-    </Snackbar>
+    </Dialog>
   );
 } 
