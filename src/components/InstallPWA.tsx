@@ -4,7 +4,6 @@ import {
   Button,
   Box,
   Typography,
-  useTheme,
 } from '@mui/material';
 import InstallIcon from '@mui/icons-material/InstallDesktop';
 
@@ -14,7 +13,6 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 export default function InstallPWA() {
-  const theme = useTheme();
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [open, setOpen] = useState(false);
 
