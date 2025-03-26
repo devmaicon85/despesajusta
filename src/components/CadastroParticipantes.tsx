@@ -9,6 +9,7 @@ import {
   ListItemSecondaryAction,
   IconButton,
   Typography,
+  useTheme,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Participante } from '../types';
@@ -19,6 +20,7 @@ interface Props {
 }
 
 export default function CadastroParticipantes({ participantes, setParticipantes }: Props) {
+  const theme = useTheme();
   const [novoParticipante, setNovoParticipante] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -40,7 +42,14 @@ export default function CadastroParticipantes({ participantes, setParticipantes 
 
   return (
     <Box>
-      <Typography variant="h6" gutterBottom>
+      <Typography 
+        variant="h6" 
+        gutterBottom
+        sx={{ 
+          color: theme.palette.text.primary,
+          fontWeight: 600
+        }}
+      >
         Cadastrar Participantes
       </Typography>
 
@@ -50,7 +59,15 @@ export default function CadastroParticipantes({ participantes, setParticipantes 
           label="Nome do Participante"
           value={novoParticipante}
           onChange={(e) => setNovoParticipante(e.target.value)}
-          sx={{ mb: 2 }}
+          sx={{ 
+            mb: 2,
+            '& .MuiInputLabel-root': {
+              color: theme.palette.text.secondary,
+            },
+            '& .MuiOutlinedInput-root': {
+              color: theme.palette.text.primary,
+            }
+          }}
         />
         <Button
           type="submit"
@@ -64,13 +81,33 @@ export default function CadastroParticipantes({ participantes, setParticipantes 
 
       <List>
         {participantes.map((participante) => (
-          <ListItem key={participante.id}>
-            <ListItemText primary={participante.nome} />
+          <ListItem 
+            key={participante.id}
+            sx={{
+              '&:hover': {
+                backgroundColor: theme.palette.action.hover,
+              }
+            }}
+          >
+            <ListItemText 
+              primary={participante.nome}
+              sx={{
+                '& .MuiListItemText-primary': {
+                  color: theme.palette.text.primary,
+                }
+              }}
+            />
             <ListItemSecondaryAction>
               <IconButton
                 edge="end"
                 aria-label="delete"
                 onClick={() => handleDelete(participante.id)}
+                sx={{
+                  color: theme.palette.error.main,
+                  '&:hover': {
+                    backgroundColor: theme.palette.error.light,
+                  }
+                }}
               >
                 <DeleteIcon />
               </IconButton>
