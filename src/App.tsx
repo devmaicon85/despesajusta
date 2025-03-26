@@ -253,6 +253,19 @@ function App() {
           </Typography>
         </Box>
 
+        <Typography 
+          variant="subtitle1" 
+          sx={{ 
+            color: theme.palette.text.secondary,
+            textAlign: 'center',
+            mb: { xs: 2, sm: 3 },
+            px: 2,
+            fontStyle: 'italic'
+          }}
+        >
+          Divisão justa das despesas entre amigos
+        </Typography>
+
         {renderContent()}
       </Container>
 
