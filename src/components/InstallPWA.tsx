@@ -77,26 +77,26 @@ export default function InstallPWA() {
           </Typography>
         </Box>
         <Stack 
-          direction="row" 
+          direction="column" 
           spacing={1} 
-          justifyContent="flex-end"
+          width="100%"
         >
-          <Button
-            color="inherit"
-            onClick={handleClose}
-            size="small"
-            sx={{ textTransform: 'none' }}
-          >
-            Agora não
-          </Button>
           <Button
             variant="contained"
             color="primary"
             onClick={handleInstall}
-            size="small"
+            fullWidth
             sx={{ textTransform: 'none' }}
           >
             Instalar
+          </Button>
+          <Button
+            color="inherit"
+            onClick={handleClose}
+            fullWidth
+            sx={{ textTransform: 'none' }}
+          >
+            Agora não
           </Button>
         </Stack>
       </Stack>
