@@ -1,6 +1,6 @@
 {
-  "short_name": "despesaJusta",
-  "name": "despesaJusta - Divida despesas de forma justa",
+  "short_name": "Despesa Justa",
+  "name": "Despesa Justa - Divisão justa das despesas entre amigos",
   "icons": [
     {
       "src": "favicon.svg",
@@ -25,7 +25,7 @@
   "orientation": "portrait",
   "scope": "/",
   "lang": "pt-BR",
-  "description": "Divida despesas de forma justa e simples",
+  "description": "Despesa Justa - Divisão justa das despesas entre amigos",
   "categories": ["finance", "utilities"],
   "screenshots": [
     {
@@ -33,7 +33,7 @@
       "sizes": "1280x720",
       "type": "image/png",
       "platform": "wide",
-      "label": "Tela principal do despesaJusta"
+      "label": "Tela principal do Despesa Justa"
     }
   ]
 } 
