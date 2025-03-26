@@ -4,6 +4,7 @@ import {
   Button,
   Box,
   Typography,
+  Stack,
 } from '@mui/material';
 import InstallIcon from '@mui/icons-material/InstallDesktop';
 
@@ -62,48 +63,43 @@ export default function InstallPWA() {
           color: 'text.primary',
           boxShadow: 3,
           borderRadius: 2,
-          px: 2,
-          py: 1,
+          p: 2,
+          width: '100%',
+          maxWidth: { xs: '90%', sm: '400px' },
         },
       }}
     >
-      <Box sx={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        gap: 2,
-        width: '100%',
-        maxWidth: { xs: '100%', sm: '400px' }
-      }}>
-        <InstallIcon color="primary" />
-        <Typography variant="body1" sx={{ flex: 1 }}>
-          Instale o despesaJusta para uma experiência melhor
-        </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleInstall}
-          size="small"
-          sx={{ 
-            minWidth: 'auto',
-            px: 2,
-            textTransform: 'none'
-          }}
+      <Stack spacing={2} width="100%">
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <InstallIcon color="primary" fontSize="large" />
+          <Typography variant="body1">
+            Instale o despesaJusta para uma experiência melhor
+          </Typography>
+        </Box>
+        <Stack 
+          direction="row" 
+          spacing={1} 
+          justifyContent="flex-end"
         >
-          Instalar
-        </Button>
-        <Button
-          color="inherit"
-          onClick={handleClose}
-          size="small"
-          sx={{ 
-            minWidth: 'auto',
-            px: 1,
-            textTransform: 'none'
-          }}
-        >
-          Agora não
-        </Button>
-      </Box>
+          <Button
+            color="inherit"
+            onClick={handleClose}
+            size="small"
+            sx={{ textTransform: 'none' }}
+          >
+            Agora não
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleInstall}
+            size="small"
+            sx={{ textTransform: 'none' }}
+          >
+            Instalar
+          </Button>
+        </Stack>
+      </Stack>
     </Snackbar>
   );
 } 
