@@ -260,7 +260,7 @@ function App() {
         >
           <BottomNavigation
             value={activeTab}
-            onChange={(event, newValue) => {
+            onChange={(_, newValue) => {
               setActiveTab(newValue);
             }}
             showLabels
