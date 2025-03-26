@@ -202,7 +202,8 @@ function App() {
           px: 2,
           width: '100%',
           bgcolor: isMobile ? 'background.paper' : 'transparent',
-          py: isMobile ? 1 : 0
+          py: isMobile ? 1 : 0,
+          mt: 2
         }}>
           <svg 
             width="48" 
@@ -238,11 +239,11 @@ function App() {
               fontSize: { xs: '1.75rem', sm: '2.125rem' },
               display: 'flex',
               alignItems: 'center',
-              gap: 1,
+              letterSpacing: '-0.5px',
               color: theme.palette.primary.main
             }}
           >
-            <span style={{ fontWeight: 300 }}>Despesa</span>
+            <span style={{ fontWeight: 300 }}>despesa</span>
             <span style={{ 
               fontWeight: 700,
               color: theme.palette.primary.dark,
@@ -284,7 +285,7 @@ function App() {
             }}
           >
             <BottomNavigationAction 
-              label="Participantes" 
+              label="Amigos" 
               icon={<GroupIcon />}
             />
             <BottomNavigationAction 

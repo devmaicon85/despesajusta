@@ -52,13 +52,13 @@ export default function CadastroParticipantes({ participantes, setParticipantes 
           mb: 3
         }}
       >
-        Cadastrar Participantes
+        Cadastrar Amigos
       </Typography>
 
       <Box component="form" onSubmit={handleSubmit} sx={{ mb: 3 }}>
         <TextField
           fullWidth
-          label="Nome do Participante"
+          label="Nome do Amigo"
           value={novoParticipante}
           onChange={(e) => setNovoParticipante(e.target.value)}
           sx={{ 
@@ -77,7 +77,7 @@ export default function CadastroParticipantes({ participantes, setParticipantes 
           color="primary"
           disabled={!novoParticipante.trim()}
         >
-          Adicionar Participante
+          Adicionar Amigo
         </Button>
       </Box>
 
