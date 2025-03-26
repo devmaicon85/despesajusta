@@ -18,4 +18,18 @@ export interface Transacao {
   de: string;
   para: string;
   valor: number;
+}
+
+export interface Friend {
+    id: string;
+    name: string;
+}
+
+export interface Expense {
+    id: string;
+    description: string;
+    amount: number;
+    paidBy: string;
+    participants: string[];
+    date: string;
 } 
