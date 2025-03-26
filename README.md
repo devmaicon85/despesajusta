@@ -1,6 +1,8 @@
 # DespesaJusta
 
-![DespesaJusta Logo](public/logo192.png)
+<div align="center">
+  <img src="public/logo192.svg" alt="DespesaJusta Logo" width="120" />
+</div>
 
 Uma aplicação web moderna para divisão justa e simplificada de despesas em grupo. Perfeita para viagens, repúblicas, eventos ou qualquer situação onde despesas precisam ser compartilhadas.
 
