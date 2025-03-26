@@ -197,8 +197,8 @@ function App() {
         <Box sx={{ 
           display: 'flex', 
           alignItems: 'center', 
-          gap: 2,
-          mb: { xs: 1, sm: 2 },
+          gap: 1,
+          mb: { xs: 0.5, sm: 1 },
           px: 2,
           width: '100%',
           bgcolor: '#ffffff',
@@ -258,7 +258,7 @@ function App() {
           sx={{ 
             color: theme.palette.text.secondary,
             textAlign: 'center',
-            mb: { xs: 2, sm: 3 },
+            mb: { xs: 1.5, sm: 2 },
             px: 2,
             fontStyle: 'italic'
           }}
