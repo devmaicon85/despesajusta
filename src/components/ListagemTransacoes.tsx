@@ -77,7 +77,14 @@ export default function ListagemTransacoes({ despesas, participantes }: Props) {
 
   return (
     <Box>
-      <Typography variant="h6" gutterBottom>
+      <Typography 
+        variant="h6" 
+        gutterBottom
+        sx={{ 
+          textAlign: 'center',
+          mb: 3
+        }}
+      >
         Quem deve pagar para quem
       </Typography>
 

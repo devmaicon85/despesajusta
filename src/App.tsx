@@ -236,11 +236,20 @@ function App() {
             component="h1" 
             sx={{ 
               fontSize: { xs: '1.75rem', sm: '2.125rem' },
-              fontWeight: 700,
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
               color: theme.palette.primary.main
             }}
           >
-            DespesaJusta
+            <span style={{ fontWeight: 300 }}>Despesa</span>
+            <span style={{ 
+              fontWeight: 700,
+              color: theme.palette.primary.dark,
+              background: `linear-gradient(45deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main})`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>Justa</span>
           </Typography>
         </Box>
 

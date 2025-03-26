@@ -47,7 +47,9 @@ export default function CadastroParticipantes({ participantes, setParticipantes 
         gutterBottom
         sx={{ 
           color: theme.palette.text.primary,
-          fontWeight: 600
+          fontWeight: 600,
+          textAlign: 'center',
+          mb: 3
         }}
       >
         Cadastrar Participantes

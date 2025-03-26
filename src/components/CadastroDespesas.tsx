@@ -182,7 +182,14 @@ export default function CadastroDespesas({ participantes, despesas, setDespesas 
           gap: 2,
           width: '100%'
         }}>
-          <Typography variant="h6" sx={{ mb: isMobile ? 2 : 0 }}>
+          <Typography 
+            variant="h6" 
+            sx={{ 
+              mb: isMobile ? 2 : 0,
+              textAlign: 'center',
+              flex: 1
+            }}
+          >
             Cadastrar Despesas
           </Typography>
 
