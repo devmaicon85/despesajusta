@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import {
   Dialog,
   Button,
-  Box,
   Typography,
   Stack,
 } from '@mui/material';
@@ -69,7 +68,7 @@ export default function InstallPWA() {
         <Stack spacing={2} alignItems="center" textAlign="center">
           <InstallIcon color="primary" sx={{ fontSize: 48 }} />
           <Typography variant="body1">
-            Instale o despesaJusta para uma experiência melhor
+            Instale o app agora para uma experiência ainda melhor
           </Typography>
         </Stack>
 
