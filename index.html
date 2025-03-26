@@ -6,10 +6,28 @@
     <link rel="apple-touch-icon" href="/logo192.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="DespesaJusta - Divida despesas de forma justa e simples" />
-    <title>DespesaJusta</title>
+    <meta name="theme-color" content="#1976d2" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="despesaJusta" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>despesaJusta</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('ServiceWorker registrado com sucesso:', registration);
+            })
+            .catch(error => {
+              console.log('Falha ao registrar o ServiceWorker:', error);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
