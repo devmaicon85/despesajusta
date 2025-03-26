@@ -8,7 +8,7 @@ export const theme = createTheme({
       dark: '#1565c0',
     },
     background: {
-      default: '#f5f5f5',
+      default: '#ffffff',
       paper: '#ffffff',
     },
     text: {
@@ -41,6 +41,13 @@ export const theme = createTheme({
               borderColor: '#1565c0',
             },
           },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#ffffff',
         },
       },
     },

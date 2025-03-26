@@ -174,7 +174,7 @@ function App() {
   return (
     <Box sx={{ 
       minHeight: '100vh',
-      bgcolor: 'background.default',
+      bgcolor: '#ffffff',
       py: { xs: 1, sm: 2 },
       display: 'flex',
       flexDirection: 'column',
@@ -201,9 +201,8 @@ function App() {
           mb: { xs: 1, sm: 2 },
           px: 2,
           width: '100%',
-          bgcolor: isMobile ? 'background.paper' : 'transparent',
-          py: isMobile ? 1 : 0,
-          mt: 2
+          bgcolor: '#ffffff',
+          py: isMobile ? 1 : 0
         }}>
           <svg 
             width="48" 
